@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import HelloPeopleJobRedux from "./HelloPeopleJobRedux";
 
+import './styles/main.scss';
+
 function getFromWindow<T>(propName: string, defaultValue?: T): T|undefined {
     return propName in window ? (window as any)[propName] : defaultValue;
 }

@@ -49,7 +49,7 @@ module.exports = {
     stats: { children: false },
     plugins: [
         new ExtractTextPlugin({
-            filename: `[name]${ process.env.NODE_ENV === 'production' ? '.[contenthash]' : ''}.css`
+            filename: `style.css`
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: process.env.NODE_ENV === 'development',

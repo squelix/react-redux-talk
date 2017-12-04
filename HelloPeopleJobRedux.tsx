@@ -25,9 +25,11 @@ class HelloPeopleJobRedux extends React.Component<Props> {
                 {
                     people.map(person => {
                         return (
-                            <div key={person.firstName + person.lastName}>
-                                Hello { person.firstName } { person.lastName }!!
-                                <button onClick={() => populationActions.removePerson(person)}>X</button>
+                            <div key={person.firstName + person.lastName} className='people'>
+                                <span>
+                                    Hello { person.firstName } { person.lastName }!!
+                                    <button className='delete-button' onClick={() => populationActions.removePerson(person)}>X</button>
+                                </span>
                             </div>
                         );
                     })
@@ -39,8 +41,8 @@ class HelloPeopleJobRedux extends React.Component<Props> {
                            value={newPeople.lastName}/>
                     <input type="number" onChange={event => populationActions.updateNewPeopleField('age', event.target.value)}
                            value={newPeople.age}/>
-                    <button onClick={() => populationActions.addPerson(newPeople)}
-                            disabled={newPeople.age <= 0 && newPeople.firstName === '' && newPeople.lastName === ''}>
+                    <button onClick={() => populationActions.addPerson(newPeople)} className='add-button'
+                            disabled={newPeople.age <= 0 || newPeople.firstName === '' || newPeople.lastName === ''}>
                         New person
                     </button>
                 </div>

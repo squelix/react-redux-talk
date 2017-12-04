@@ -1,0 +1,61 @@
+body {
+  background: #fafafa;
+  font-size: 14px;
+  font-family: Lato, serif;
+}
+
+.people {
+  margin: 10px;
+  height: 30px;
+
+  span {
+    vertical-align: -webkit-baseline-middle;
+    font-size: 20px;
+  }
+}
+
+.delete-button {
+  width: 26px;
+  height: 27px;
+  background: orangered;
+  border: none;
+  border-radius: 100%;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: bold;
+
+  &:hover {
+    background: red;
+  }
+}
+
+.add-button {
+  height: 30px;
+  background: lightblue;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  margin-left: 5px;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+
+    &:hover {
+      background: lightblue;
+    }
+  }
+
+  &:hover {
+    background: lightskyblue;
+  }
+}
+
+input {
+  font-size: 14px;
+  margin: 5px;
+}

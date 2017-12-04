@@ -22,6 +22,11 @@ export default function population(state = defaultState, action) {
             return {
                 ...state,
                 people: [...state.people, action.payload],
+                newPeople: {
+                    firstName: '',
+                    lastName: '',
+                    age: 0,
+                }
             };
 
         case 'REMOVE_PERSON':
