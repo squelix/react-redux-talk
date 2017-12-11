@@ -24,7 +24,7 @@ class HelloPeopleJobRedux extends React.Component<Props> {
             <>
                 {
                     people.map(person => {
-                        if (person.job && person.job.name != '') {
+                        if (person.job && person.job.name !== '') {
                             return (
                                 <div key={person.firstName + person.lastName} className='people'>
                                 <span>
