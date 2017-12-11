@@ -23,5 +23,6 @@ export interface PopulationActions {
     addPerson: (person: Person) => void;
     initPeople: (people: Person[]) => void;
     updateNewPeopleField: (field: string, value: any) => void;
+    updateNewPeopleJobField: (field: string, value: any) => void;
     removePerson: (person: Person) => void;
 }

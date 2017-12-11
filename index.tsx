@@ -32,11 +32,11 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <div>
+            <React.Fragment>
                 <Switch>
                     <Route exact path='/' component={HelloPeopleJobRedux}/>
                 </Switch>
-            </div>
+            </React.Fragment>
         </ConnectedRouter>
     </Provider>, app,
 );

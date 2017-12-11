@@ -24,23 +24,45 @@ class HelloPeopleJobRedux extends React.Component<Props> {
             <>
                 {
                     people.map(person => {
-                        return (
-                            <div key={person.firstName + person.lastName} className='people'>
+                        if (person.job && person.job.name != '') {
+                            return (
+                                <div key={person.firstName + person.lastName} className='people'>
                                 <span>
-                                    Hello { person.firstName } { person.lastName }!!
+                                    <span className="name clickable" onClick={() => alert(`I'm ${person.job.name}`)}>Hello { person.firstName } { person.lastName }!!</span>
                                     <button className='delete-button' onClick={() => populationActions.removePerson(person)}>X</button>
                                 </span>
-                            </div>
-                        );
+                                </div>
+                            );
+                        } else {
+                            return (
+                                <div key={person.firstName + person.lastName} className='people'>
+                                <span>
+                                    <span className="name">Hello { person.firstName } { person.lastName }!!</span>
+                                    <button className='delete-button' onClick={() => populationActions.removePerson(person)}>X</button>
+                                </span>
+                                </div>
+                            );
+                        }
                     })
                 }
                 <div>
-                    <input type="text" onChange={event => populationActions.updateNewPeopleField('firstName', event.target.value)}
+                    <input type="text"
+                           onChange={event => populationActions.updateNewPeopleField('firstName', event.target.value)}
+                           placeholder="Firstname"
                            value={newPeople.firstName}/>
-                    <input type="text" onChange={event => populationActions.updateNewPeopleField('lastName', event.target.value)}
+                    <input type="text"
+                           onChange={event => populationActions.updateNewPeopleField('lastName', event.target.value)}
+                           placeholder="Lastname"
                            value={newPeople.lastName}/>
-                    <input type="number" onChange={event => populationActions.updateNewPeopleField('age', event.target.value)}
+                    <input type="number"
+                           onChange={event => populationActions.updateNewPeopleField('age', event.target.value)}
+                           min="0"
+                           placeholder="Age"
                            value={newPeople.age}/>
+                    <input type="text"
+                           onChange={event => populationActions.updateNewPeopleJobField('name', event.target.value)}
+                           placeholder="Job name"
+                           value={newPeople.job.name}/>
                     <button onClick={() => populationActions.addPerson(newPeople)} className='add-button'
                             disabled={newPeople.age <= 0 || newPeople.firstName === '' || newPeople.lastName === ''}>
                         New person

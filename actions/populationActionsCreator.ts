@@ -17,6 +17,10 @@ const updateNewPeopleField: ActionCreator<void> = (field: string, value: any) =>
     return dispatch(action);
 };
 
+const updateNewPeopleJobField: ActionCreator<void> = (field: string, value: any) => dispatch => {
+    const action = createAction<any>('UPDATE_NEW_PEOPLE_JOB_FIELD')({field, value});
+    return dispatch(action);
+};
 
 const removePerson: ActionCreator<void> = (person: Person) => dispatch => {
     const action = person ? createAction<Person>('REMOVE_PERSON')(person) : createAction('REMOVE_PERSON')();
@@ -29,4 +33,5 @@ export default {
     removePerson,
     initPeople,
     updateNewPeopleField,
+    updateNewPeopleJobField,
 }

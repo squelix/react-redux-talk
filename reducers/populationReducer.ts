@@ -6,6 +6,10 @@ const defaultState: PopulationState = {
         firstName: '',
         lastName: '',
         age: 0,
+        job: {
+            name: '',
+            location: '',
+        },
     },
 };
 
@@ -26,6 +30,10 @@ export default function population(state = defaultState, action) {
                     firstName: '',
                     lastName: '',
                     age: 0,
+                    job: {
+                        name: '',
+                        location: '',
+                    },
                 }
             };
 
@@ -41,6 +49,18 @@ export default function population(state = defaultState, action) {
                 newPeople: {
                     ...state.newPeople,
                     [action.payload.field]: action.payload.value
+                }
+            };
+
+        case 'UPDATE_NEW_PEOPLE_JOB_FIELD':
+            return {
+                ...state,
+                newPeople: {
+                    ...state.newPeople,
+                    job: {
+                        ...state.newPeople.job,
+                        [action.payload.field]: action.payload.value
+                    }
                 }
             };
 
