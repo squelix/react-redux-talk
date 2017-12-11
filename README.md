@@ -3,6 +3,10 @@ Redux + React example
 
 A sample React + Redux project for my Talk
 
+# Talk
+
+At the root `Talk.pdf`
+
 # How to run
 
 * `yarn`
